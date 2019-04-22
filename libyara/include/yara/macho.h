@@ -579,6 +579,31 @@ typedef struct {
   uint32_t reserved;
 } yr_fat_arch_64_t;
 
+typedef struct {
+  uint32_t cmd;
+  uint32_t cmdsize;
+  uint32_t symoff;
+  uint32_t nsyms;
+  uint32_t stroff;
+  uint32_t strsize;
+} yr_symtab_command_t;
+
+typedef struct {
+  uint32_t n_strx;
+  uint8_t n_type;	
+  uint8_t n_sect;	
+  int16_t n_desc;	
+  uint32_t n_value;
+} yr_nlist_32_t;
+
+typedef struct {
+  uint32_t n_strx;
+  uint8_t n_type;  
+  uint8_t n_sect;  
+  uint16_t n_desc; 
+  uint64_t n_value;
+} yr_nlist_64_t;
+
 #pragma pack(pop)
 
 #endif

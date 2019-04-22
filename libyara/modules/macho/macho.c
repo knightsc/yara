@@ -517,6 +517,17 @@ void macho_handle_segment_64(
 }
 
 
+// Load symbol table
+
+void macho_handle_symtab(
+    void* command,
+    YR_OBJECT* object,
+    YR_SCAN_CONTEXT* context)
+{
+
+}
+
+
 // Parse Mach-O file.
 
 void macho_parse_file(
@@ -581,6 +592,10 @@ void macho_parse_file(
       {
         macho_handle_segment_64(command, seg_count++, object);
         break;
+      }
+      case LC_SYMTAB:
+      {
+        macho_handle_symtab(command, object, context);
       }
       case LC_UNIXTHREAD:
       {
